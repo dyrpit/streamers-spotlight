@@ -2,7 +2,7 @@ import { Response, Request } from 'express';
 import express from 'express';
 import 'dotenv/config';
 
-import streamersRoute from './routes/streamerRoutes';
+import streamersRoute from './routes/streamer-routes';
 
 const app = express();
 
