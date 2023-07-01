@@ -18,10 +18,7 @@ export const createStreamer = async (
         name,
         description,
         platforms: {
-          connectOrCreate: platforms.map((platform) => ({
-            where: { id: platform.id },
-            create: { name: platform.name },
-          })),
+          connect: platforms.map((platformId) => ({ id: platformId })),
         },
       },
       include: { platforms: true },

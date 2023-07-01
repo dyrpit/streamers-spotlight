@@ -4,16 +4,10 @@ import { z } from 'zod';
 import { TypedRequest } from '../../interfaces/interfaces';
 import { CreateStreamerDto } from '../../../../shared/interfaces';
 
-const platformSchema = z.object({
-  id: z.string().nonempty(),
-  name: z.string().nonempty(),
-});
-
-
 const createStreamerSchema = z.object({
   name: z.string().nonempty(),
   description: z.string().nonempty(),
-  platforms: z.array(platformSchema),
+  platforms: z.array(z.string().nonempty()),
 });
 
 export const validateStreamerBody = (
