@@ -1,6 +1,6 @@
 import { Container } from '@mui/material';
 
-import StreamersView from './views/StreamersView';
+import { Outlet } from 'react-router-dom';
 
 const App = () => {
   return (
@@ -9,7 +9,7 @@ const App = () => {
       maxWidth="xl"
       sx={{ pt: 1, pb: 1, minHeight: '100vh' }}
     >
-      <StreamersView />
+      <Outlet />
     </Container>
   );
 };
