@@ -14,6 +14,7 @@ import { styled } from '@mui/system';
 
 import { useGetStreamers } from '../api/streamers/get-streamers';
 import { useVoteStreamer } from '../api/streamers/vote-streamer';
+import { REFETCH_INTERVAL } from '../constants/query-client';
 
 const StyledButtonBox = styled(Box)({
   display: 'flex',
@@ -24,7 +25,9 @@ const StyledButtonBox = styled(Box)({
 });
 
 const StreamerList = () => {
-  const { data: streamers, isLoading } = useGetStreamers();
+  const { data: streamers, isLoading } = useGetStreamers({
+    refetchInterval: REFETCH_INTERVAL,
+  });
   const { mutate: voteStreamer } = useVoteStreamer();
 
   const handleUpvote = (id: string) => {
