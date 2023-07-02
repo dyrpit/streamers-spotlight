@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import App from './App.tsx';
 import StreamersView from './views/StreamersView.tsx';
+import StreamerDetailsView from './views/StreamerDetailsView.tsx';
 
 import { queryClient } from './constants/query-client.ts';
 
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
       },
       {
         path: '/:streamerId',
-        element: <div>Streamer details view</div>,
+        element: <StreamerDetailsView />,
       },
     ],
   },

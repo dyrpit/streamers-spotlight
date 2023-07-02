@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom';
+
 import {
   List,
   ListItem,
@@ -25,6 +27,8 @@ const StyledButtonBox = styled(Box)({
 });
 
 const StreamerList = () => {
+  const navigate = useNavigate();
+
   const { data: streamers, isLoading } = useGetStreamers({
     refetchInterval: REFETCH_INTERVAL,
   });
@@ -50,8 +54,20 @@ const StreamerList = () => {
       <List>
         {streamers &&
           streamers?.map((streamer) => (
-            <ListItem key={streamer.id}>
-              <Card sx={{ width: '100%' }}>
+            <ListItem
+              key={streamer.id}
+              onClick={() => navigate(`/${streamer.id}`)}
+            >
+              <Card
+                sx={{
+                  width: '100%',
+                  cursor: 'pointer',
+                  transition: '0.2s',
+                  ':hover': {
+                    bgcolor: 'lightgray',
+                  },
+                }}
+              >
                 <CardContent>
                   <Typography gutterBottom variant="h5" component="div">
                     {streamer.name}
@@ -65,7 +81,10 @@ const StreamerList = () => {
                     <IconButton
                       edge="end"
                       aria-label="upvote"
-                      onClick={() => handleUpvote(streamer.id)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleUpvote(streamer.id);
+                      }}
                     >
                       <ThumbUp color="success" />
                     </IconButton>
@@ -75,7 +94,10 @@ const StreamerList = () => {
                     <IconButton
                       edge="end"
                       aria-label="downvote"
-                      onClick={() => handleDownvote(streamer.id)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleDownvote(streamer.id);
+                      }}
                     >
                       <ThumbDown color="error" />
                     </IconButton>
