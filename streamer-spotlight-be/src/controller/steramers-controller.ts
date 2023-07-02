@@ -34,6 +34,7 @@ export const createStreamer = async (
 export const getStreamers = async (req: Request, res: Response) => {
   try {
     const streamers = await prismaClient.streamer.findMany({
+      orderBy: [{ upvotes: 'desc' }, { downvotes: 'asc' }],
       include: { platforms: true },
     });
     res.json(streamers);
