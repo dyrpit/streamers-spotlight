@@ -7,6 +7,6 @@ export interface Streamer {
   downvotes: number;
   platforms: {
     id: string;
-    namae: string;
-  };
+    name: string;
+  }[];
 }
