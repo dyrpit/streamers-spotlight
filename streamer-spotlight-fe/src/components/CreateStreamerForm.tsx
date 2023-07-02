@@ -13,6 +13,7 @@ import {
   Snackbar,
   Slide,
   SlideProps,
+  CardActions,
 } from '@mui/material';
 
 import { useCreateStreamer } from '../api/streamers/create-streamer';
@@ -66,7 +67,7 @@ const CreateForm = () => {
         <Box
           component="form"
           onSubmit={handleSubmit(handleFormSubmit)}
-          sx={{ width: 400, m: 'auto' }}
+          sx={{ pb: 4, pt: 4 }}
         >
           <Card>
             <CardHeader
@@ -74,29 +75,31 @@ const CreateForm = () => {
               sx={{ textAlign: 'center' }}
             />
             <CardContent>
-              <Grid container gap={4}>
-                <Grid item xs={12}>
+              <Grid container gap={1} justifyContent="space-evenly">
+                <Grid item xs={12} md={3}>
                   <TextInput label="Streamer name" name="name" />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} md={3}>
                   <SelectInput
                     label="Streamer platforms"
                     name="platforms"
                     options={streamingPlatformsOptions}
                   />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} md={3}>
                   <TextInput
                     label="Streamer description"
                     name="description"
                     multiline
                   />
                 </Grid>
+              </Grid>
+              <CardActions sx={{ p: 2 }}>
                 <Button
                   type="submit"
                   variant="contained"
                   color="primary"
-                  sx={{ minWidth: 150, ml: 'auto' }}
+                  sx={{ minWidth: 150, m: 'auto' }}
                 >
                   {isLoading ? (
                     <CircularProgress color="inherit" size={25} />
@@ -104,7 +107,7 @@ const CreateForm = () => {
                     'Submit'
                   )}
                 </Button>
-              </Grid>
+              </CardActions>
             </CardContent>
           </Card>
         </Box>

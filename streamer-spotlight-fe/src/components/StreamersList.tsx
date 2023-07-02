@@ -40,8 +40,8 @@ const StreamerList = () => {
   }
 
   return (
-    <>
-      <Typography variant="h4" component="h1" gutterBottom textAlign="center">
+    <Box sx={{ pb: 4, pt: 4 }}>
+      <Typography variant="h5" component="h2" gutterBottom textAlign="center">
         Streamers list
       </Typography>
       <List>
@@ -83,7 +83,7 @@ const StreamerList = () => {
             </ListItem>
           ))}
       </List>
-    </>
+    </Box>
   );
 };
 
