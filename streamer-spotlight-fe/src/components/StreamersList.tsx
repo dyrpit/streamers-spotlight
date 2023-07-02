@@ -10,20 +10,21 @@ import {
   CardContent,
   Typography,
   CardActions,
+  Tooltip,
 } from '@mui/material';
 import { ThumbUp, ThumbDown } from '@mui/icons-material';
 import { styled } from '@mui/system';
 
 import { useGetStreamers } from '../api/streamers/get-streamers';
 import { useVoteStreamer } from '../api/streamers/vote-streamer';
+
 import { REFETCH_INTERVAL } from '../constants/query-client';
 
 const StyledButtonBox = styled(Box)({
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
-  justifyContent: 'space-between',
-  width: '50px',
+  width: '70px',
 });
 
 const StreamerList = () => {
@@ -64,7 +65,7 @@ const StreamerList = () => {
                   cursor: 'pointer',
                   transition: '0.2s',
                   ':hover': {
-                    bgcolor: 'lightgray',
+                    bgcolor: '#f0f0f0',
                   },
                 }}
               >
@@ -77,32 +78,38 @@ const StreamerList = () => {
                   </Typography>
                 </CardContent>
                 <CardActions>
-                  <StyledButtonBox>
-                    <IconButton
-                      edge="end"
-                      aria-label="upvote"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleUpvote(streamer.id);
-                      }}
-                    >
-                      <ThumbUp color="success" />
-                    </IconButton>
-                    <Typography>{streamer.upvotes}</Typography>
-                  </StyledButtonBox>
-                  <StyledButtonBox>
-                    <IconButton
-                      edge="end"
-                      aria-label="downvote"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        handleDownvote(streamer.id);
-                      }}
-                    >
-                      <ThumbDown color="error" />
-                    </IconButton>
-                    <Typography>{streamer.downvotes}</Typography>
-                  </StyledButtonBox>
+                  <Tooltip title="Upvote">
+                    <StyledButtonBox>
+                      <IconButton
+                        edge="end"
+                        aria-label="upvote"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleUpvote(streamer.id);
+                        }}
+                        sx={{ mr: 0.25 }}
+                      >
+                        <ThumbUp color="success" />
+                      </IconButton>
+                      <Typography>{streamer.upvotes}</Typography>
+                    </StyledButtonBox>
+                  </Tooltip>
+                  <Tooltip title="Downvote">
+                    <StyledButtonBox>
+                      <IconButton
+                        edge="end"
+                        aria-label="downvote"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleDownvote(streamer.id);
+                        }}
+                        sx={{ mr: 0.25 }}
+                      >
+                        <ThumbDown color="error" />
+                      </IconButton>
+                      <Typography>{streamer.downvotes}</Typography>
+                    </StyledButtonBox>
+                  </Tooltip>
                 </CardActions>
               </Card>
             </ListItem>
