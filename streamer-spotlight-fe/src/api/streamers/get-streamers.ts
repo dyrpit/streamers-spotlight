@@ -11,9 +11,14 @@ const getStreamers = async () => {
   return data;
 };
 
-export const useGetStreamers = () => {
+interface QueryOptions {
+  refetchInterval?: number;
+}
+
+export const useGetStreamers = ({ refetchInterval }: QueryOptions = {}) => {
   return useQuery({
     queryKey: [GET_STREAMERS_KEY],
     queryFn: getStreamers,
+    refetchInterval,
   });
 };
