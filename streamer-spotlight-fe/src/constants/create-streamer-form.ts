@@ -1,7 +1,7 @@
 import {
   CreateStreamerFormData,
   StreamingPlatform,
-} from '../interfaces/create-streamer-interface';
+} from '../interfaces/create-streamer.interface';
 
 export const streamingPlatformsOptions: StreamingPlatform[] = [
   { id: 'bd30fb72-8e24-4577-8e78-ad7190768fbc', name: 'Twitch' },

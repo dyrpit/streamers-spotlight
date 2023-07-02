@@ -11,7 +11,7 @@ import {
   Select,
 } from '@mui/material';
 
-import { StreamingPlatform } from '../interfaces/create-streamer-interface';
+import { StreamingPlatform } from '../interfaces/create-streamer.interface';
 
 interface IProps {
   name: string;

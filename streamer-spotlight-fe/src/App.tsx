@@ -1,12 +1,16 @@
-import { Box } from '@mui/material';
+import { Container } from '@mui/material';
 
-import StreamerSubmitView from './views/StreamerSubmitView';
+import StreamersView from './views/StreamersView';
 
 const App = () => {
   return (
-    <Box component="main" sx={{ p: 4, minHeight: '100vh' }}>
-      <StreamerSubmitView />
-    </Box>
+    <Container
+      component="main"
+      maxWidth="xl"
+      sx={{ pt: 1, pb: 1, minHeight: '100vh' }}
+    >
+      <StreamersView />
+    </Container>
   );
 };
 

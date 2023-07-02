@@ -15,12 +15,12 @@ import {
   SlideProps,
 } from '@mui/material';
 
-import { useCreateStreamer } from '../api/streamers/createStreamer';
+import { useCreateStreamer } from '../api/streamers/create-streamer';
 
 import TextInput from './TextInput';
 import SelectInput from './SelectInput';
 
-import { CreateStreamerFormData } from '../interfaces/create-streamer-interface';
+import { CreateStreamerFormData } from '../interfaces/create-streamer.interface';
 import {
   initialCreateStreamerFormData,
   streamingPlatformsOptions,
